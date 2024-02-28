@@ -75,19 +75,21 @@
             <tbody>
                 {% for index, row in dataframe.iterrows() %}
                 <tr>
+                    {% set cell_counter = 0 %}
                     {% for item in row %}
+                    {% set cell_counter = cell_counter + 1 %}
                     <td>
                         {% if item|string|length > 1000 %}
                         <div class="truncate">
-                            {{ item|truncate(100, true, '...') | safe }}... <!-- Show a preview of the content -->
+                            {{ item|truncate(100, true, '...') | safe }} <!-- Corrected: Removed extra ellipsis -->
                             <button type="button" class="btn btn-link btn-sm text-primary p-0" data-toggle="modal"
-                                data-target="#modal{{ loop.index0 }}-{{ loop.index }}">
+                                data-target="#modal-{{ index }}-{{ cell_counter }}">
                                 More...
                             </button>
                         </div>
                         <!-- Modal -->
-                        <div class="modal fade" id="modal{{ loop.index0 }}-{{ loop.index }}" tabindex="-1"
-                            role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                        <div class="modal fade" id="modal-{{ index }}-{{ cell_counter }}" tabindex="-1" role="dialog"
+                            aria-labelledby="modelTitleId" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -110,6 +112,7 @@
                 </tr>
                 {% endfor %}
             </tbody>
+
         </table>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
