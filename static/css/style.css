@@ -1,0 +1,88 @@
+:root {
+    --camino-yellow: #ffb511;
+    --camino-mid-blue: #212c47;
+    --camino-dark-blue: #121c33;
+    --white: white;
+    --body-grey: #b8c1d6;
+    --red: #f21d2f;
+    --black: black;
+
+    --sunrise-yellow: #FFB511;
+    --kyoto-purple: #9F4AFF;
+    --pacific-blue: #00AACC;
+    --caribbean-green: #26D19E;
+    --sunset-coral: #F46677;
+    --asphalt-900: #121C33;
+    --asphalt-800: #212C47;
+    --asphalt-700: #33405C;
+    --asphalt-600: #4A5670;
+    --asphalt-500: #747F99;
+    --asphalt-400: #B8C1D6;
+    --asphalt-300: #D5DCEB;
+    --asphalt-200: #F5F8FF;
+    --asphalt-100: #FFFFFF;
+} 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
+/* ************** */
+/* Login page */
+/* ************** */
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fccb90;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, var(--sunrise-yellow), var(--sunset-coral));
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, var(--sunrise-yellow), var(--sunset-coral));
+}
+.btn-login {
+    background: var(--camino-yellow);
+    border: none;
+    transition: all ease-in-out 250ms;
+    border-radius: 4px;
+}
+.btn-login:hover {
+    background-color: var(--camino-yellow);
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(255, 181, 17, .6);
+}
+.btn.btn-login:active {
+    background-color: var(--asphalt-600);
+}
+.heading-3 {
+    font-weight: 800;
+    line-height: 115%;
+    font-size: 24px;
+}
+.form-label {
+    font-size:small;
+}
+
+
+
+
+
+
+@media (min-width: 768px) {
+    .gradient-form {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2 {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
