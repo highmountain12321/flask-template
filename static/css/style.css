@@ -54,11 +54,19 @@ body {
 }
 .btn-login:hover {
     background-color: var(--camino-yellow);
-    transform: translateY(-2px);
     box-shadow: 0 0 10px rgba(255, 181, 17, .6);
 }
 .btn.btn-login:active {
     background-color: var(--asphalt-600);
+}
+.btn.btn-outline-danger {
+    color: var(--red);
+    border-color: var(--red);
+    transition: all ease-in-out 250ms;
+}
+.btn.btn-outline-danger:hover {
+    color: white;
+    background-color: var(--red);
 }
 .heading-3 {
     font-weight: 800;
