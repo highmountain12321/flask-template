@@ -45,6 +45,8 @@ body {
 
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background: linear-gradient(to right, var(--sunrise-yellow), var(--sunset-coral));
+
+    background: var(--camino-dark-blue)
 }
 .btn-login {
     background: var(--camino-yellow);
