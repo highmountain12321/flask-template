@@ -67,6 +67,7 @@ body {
 .btn.btn-outline-danger:hover {
     color: white;
     background-color: var(--red);
+    box-shadow: 0 0 10px #f21d2faa;
 }
 .heading-3 {
     font-weight: 800;
