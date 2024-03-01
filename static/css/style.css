@@ -29,29 +29,41 @@
 }
 body {
     font-family: 'Poppins', sans-serif;
-
+    color: var(--asphalt-600)
 }
 
+/* ************** */
+/* Inline styles */
+/* ************** */
+.text-asphalt-600 {
+    color: var(--asphalt-600);
+}
+.bg-asphalt-600 {
+    color: var(--asphalt-600);
+}
 
 /* ************** */
 /* Login page */
 /* ************** */
-.gradient-custom-2 {
-    /* fallback for old browsers */
-    background: #fccb90;
-
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, var(--sunrise-yellow), var(--sunset-coral));
-
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, var(--sunrise-yellow), var(--sunset-coral));
-
+.right-panel {
     background-image: url('/static/images/login_right.png')
+}
+.right-panel h3 {
+    font-size: 60px;
+    text-align: start;
+    font-weight: 600;
+}
+.right-panel p {
+    font-size: 22px;
+}
+.right-panel p.right-description-1 {
+    color: var(--asphalt-400)
 }
 .btn-login {
     background: var(--camino-yellow);
     border: none;
     transition: all ease-in-out 250ms;
+    color: var(--camino-dark-blue);
     border-radius: 4px;
 }
 .btn-login:hover {
@@ -75,15 +87,11 @@ body {
     font-weight: 800;
     line-height: 115%;
     font-size: 24px;
+    color: var(--camino-dark-blue)
 }
 .form-label {
     font-size:small;
 }
-
-
-
-
-
 
 @media (min-width: 768px) {
     .gradient-form {
