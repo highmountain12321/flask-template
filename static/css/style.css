@@ -189,7 +189,7 @@ body {
     max-height: 96vh;
 }
 
-.data-table thead {
+.data-table thead th{
     background-color: var(--asphalt-800);
     color: white;
 }
@@ -204,4 +204,8 @@ body {
     max-width: 240px;
     font-size: 0.8rem;
     word-wrap: break-word;
+}
+
+.search-submit {
+    
 }
