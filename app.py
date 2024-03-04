@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import pandas as pd
 import markdown
+# from md-to-html import md
 
 app = Flask(__name__)
 
@@ -8,6 +9,7 @@ def read_excel():
     df = pd.read_excel("./fakedb/Publications example v7.0 29Nov23.xlsx")
     # Assuming 'abstract' column contains Markdown content
     df['abstract'] = df['abstract'].astype(str).apply(lambda x: markdown.markdown(x)).apply(lambda x: x.replace('\n', '<br>'))
+    # df['abstract'] = df['abstract'].astype(str).apply(lambda x: md)
     return df
 
 

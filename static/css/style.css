@@ -194,7 +194,7 @@ body {
     color: white;
 }
 .data-table thead{ position: sticky; top: 0; z-index: 1; }
-.data-table tbody th { position: sticky; left: 0; }
+.data-table tbody{ position: sticky; left: 0; }
 .data-table tbody tr {
     background-color: var(--asphalt-200);
     color: var(--asphalt-900)

@@ -64,7 +64,7 @@
                     <td>
                         {% if item|string|length > 1000 %}
                         <div class="truncate">
-                            {{ item|truncate(100, true, '  ') | safe }} <!-- Corrected: Removed extra ellipsis -->
+                            {{ item|truncate(200, true, '  ') | safe }}
                             <button type="button" class="btn btn-link btn-sm text-primary p-0" data-toggle="modal"
                                 data-target="#modal-{{ index }}-{{ cell_counter }}">
                                 more...
