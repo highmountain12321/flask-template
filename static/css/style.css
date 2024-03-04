@@ -181,20 +181,11 @@ body {
     margin: auto;
 }
 
-.container .modal-dialog {
-    max-width: 80vw;
-}
-
-.container .modal {
-    max-height: 96vh;
-}
-
 .data-table thead th{
     background-color: var(--asphalt-800);
     color: white;
 }
 .data-table thead{ position: sticky; top: 0; z-index: 1; }
-.data-table tbody{ position: sticky; left: 0; }
 .data-table tbody tr {
     background-color: var(--asphalt-200);
     color: var(--asphalt-900)
@@ -204,8 +195,4 @@ body {
     max-width: 240px;
     font-size: 0.8rem;
     word-wrap: break-word;
-}
-
-.search-submit {
-    
 }

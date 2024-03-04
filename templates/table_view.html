@@ -48,21 +48,19 @@
                     {% if item|string|length > 1000 %}
                     <div class="truncate">
                         {{ item|truncate(200, true, ' ') | safe }}
-                        <button type="button" class="btn btn-link btn-sm text-primary p-0" data-toggle="modal"
-                            data-target="#modal-{{ index }}-{{ cell_counter }}">
+                        <button type="button" class="btn btn-link btn-sm text-primary p-0" data-bs-toggle="modal"
+                            data-bs-target="#modal-{{ index }}-{{ cell_counter }}">
                             more...
                         </button>
                     </div>
                     <!-- Modal -->
                     <div class="modal fade" id="modal-{{ index }}-{{ cell_counter }}" tabindex="-1" role="dialog"
                         aria-labelledby="modelTitleId" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title">Detailed Content</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     {{ item|safe }}
