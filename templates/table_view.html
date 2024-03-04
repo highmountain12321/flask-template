@@ -1,107 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+{% block title %}Sample Page{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <title>Sample Table</title>
-    <style>
-        
-    </style>
-</head>
-
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark ">
-        <a class="navbar-brand" href="/login">Return to login</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='images/logo_2x.png')}}"
+            style="width: 35px;" alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/login">Return to login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/table">Table</a>
                 </li>
-                <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li> -->
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-warning  my-2 my-sm-0" type="submit">Search</button>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-warning " type="submit">Search</button>
             </form>
         </div>
-    </nav>
-    <div class="container mt-5 table-container">
-        <table class="table table-striped data-table">
-            <thead>
-                <tr>
-                    {% for column in dataframe.columns %}
-                    <th>{{ column }}</th>
-                    {% endfor %}
-                </tr>
-            </thead>
-            <tbody>
-                {% for index, row in dataframe.iterrows() %}
-                <tr>
-                    {% set cell_counter = 0 %}
-                    {% for item in row %}
-                    {% set cell_counter = cell_counter + 1 %}
-                    <td>
-                        {% if item|string|length > 1000 %}
-                        <div class="truncate">
-                            {{ item|truncate(200, true, '  ') | safe }}
-                            <button type="button" class="btn btn-link btn-sm text-primary p-0" data-toggle="modal"
-                                data-target="#modal-{{ index }}-{{ cell_counter }}">
-                                more...
-                            </button>
-                        </div>
-                        <!-- Modal -->
-                        <div class="modal fade" id="modal-{{ index }}-{{ cell_counter }}" tabindex="-1" role="dialog"
-                            aria-labelledby="modelTitleId" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Detailed Content</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        {{ item|safe }}
-                                    </div>
+    </div>
+</nav>
+<div class="container mt-5 table-container">
+    <table class="table table-striped data-table">
+        <thead>
+            <tr>
+                {% for column in dataframe.columns %}
+                <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for index, row in dataframe.iterrows() %}
+            <tr>
+                {% set cell_counter = 0 %}
+                {% for item in row %}
+                {% set cell_counter = cell_counter + 1 %}
+                <td>
+                    {% if item|string|length > 1000 %}
+                    <div class="truncate">
+                        {{ item|truncate(200, true, ' ') | safe }}
+                        <button type="button" class="btn btn-link btn-sm text-primary p-0" data-bs-toggle="modal"
+                            data-bs-target="#modal-{{ index }}-{{ cell_counter }}">
+                            more...
+                        </button>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="modal-{{ index }}-{{ cell_counter }}" tabindex="-1" role="dialog"
+                        aria-labelledby="modelTitleId" aria-hidden="true">
+                        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Detailed Content</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    {{ item|safe }}
                                 </div>
                             </div>
                         </div>
-                        {% else %}
-                        {{ item|safe }}
-                        {% endif %}
-                    </td>
-                    {% endfor %}
-                </tr>
+                    </div>
+                    {% else %}
+                    {{ item|safe }}
+                    {% endif %}
+                </td>
                 {% endfor %}
-            </tbody>
+            </tr>
+            {% endfor %}
+        </tbody>
 
-        </table>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </table>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-</body>
-
-</html>
+{% endblock %}
